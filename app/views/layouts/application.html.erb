@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <title><%= @title %></title>
+ <%= csrf_meta_tags %>
+ <%= stylesheet_link_tag 'application',
+ media: 'all', 'data-turbolinks-track': 'reload' %>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ </head>
+ <body>
+ <div class="container">
+ <header>
+ <h1>Our Cookbook</h1>
+ </header>
+ 
+<nav>
+ <%= link_to_unless_current 'Home', root_url %>
+ <%= link_to_unless_current 'Recipes', recipes_url %>
+ <%= link_to_unless_current 'About', about_url %>
+</nav>
+
+ 
+ <main class="content">
+ <%= yield %>
+ </main>
+ <footer>
+ <h4>Copyright <%=Date.today.year %> OurCookbook</h4>
+ </footer>
+ </div>
+ </body>
+</html>
